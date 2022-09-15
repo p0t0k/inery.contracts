@@ -1,0 +1,1 @@
+producers_table *_producer_info = (producers_table *)system_contract::_producers;

@@ -1,0 +1,40 @@
+{
+  "name": "inery.contracts",
+  "generators": [
+    {
+      "name": "collate_markdown",
+      "options": {
+        "docs_dir": "docs"
+      }
+    },
+    {
+      "name": "mdjavadoc",
+      "options": {
+        "source_dirs": [
+          "contracts/inery.token/include/inery.token/",
+          "contracts/inery.wrap/include/inery.wrap/",
+          "contracts/inery.bios/include/inery.bios/",
+          "contracts/inery.system/include/inery.system/",
+          "contracts/inery.msig/include/inery.msig/"
+        ],
+        "output_dir": "action-reference"
+      }
+    }
+  ],
+  "skip_default_filters": true,
+  "filters": [
+    {
+      "name": "sanitize",
+      "options": {
+        "exclude": ["action-reference"]
+      }
+    },
+    {
+      "name": "capitalize",
+      "options": {
+        "mode": "all",
+        "exclude": ["action-reference"]
+      }
+    }
+  ]
+}

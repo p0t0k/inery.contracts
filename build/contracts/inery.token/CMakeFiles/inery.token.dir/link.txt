@@ -1,0 +1,1 @@
+/usr/local/inery.cdt/bin/inery-ld  CMakeFiles/inery.token.dir/src/inery.token.cpp.obj -o inery.token.wasm 

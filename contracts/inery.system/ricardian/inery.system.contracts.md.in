@@ -1,0 +1,444 @@
+<h1 class="contract">activate</h1>
+
+---
+spec_version: "0.2.0"
+title: Activate Protocol Feature
+summary: 'Activate protocol feature {{nowrap feature_digest}}'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} activates the protocol feature with a digest of {{feature_digest}}.
+
+
+
+<h1 class="contract">buymem</h1>
+
+---
+spec_version: "0.2.0"
+title: Buy MEM
+summary: '{{nowrap payer}} buys MEM on behalf of {{nowrap receiver}} by paying {{nowrap quant}}'
+icon: @ICON_BASE_URL@/@RESOURCE_ICON_URI@
+---
+
+{{payer}} buys MEM on behalf of {{receiver}} by paying {{quant}}. This transaction will incur a 0.5% fee out of {{quant}} and the amount of MEM delivered will depend on market rates.
+
+<h1 class="contract">canceldelay</h1>
+
+---
+spec_version: "0.2.0"
+title: Cancel Delayed Transaction
+summary: '{{nowrap canceling_auth.actor}} cancels a delayed transaction'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+{{canceling_auth.actor}} cancels the delayed transaction with id {{trx_id}}.
+
+<h1 class="contract">buymembytes</h1>
+
+---
+spec_version: "0.2.0"
+title: Buy MEM
+summary: '{{nowrap payer}} buys {{nowrap bytes}} bytes of MEM on behalf of {{nowrap receiver}}'
+icon: @ICON_BASE_URL@/@RESOURCE_ICON_URI@
+---
+
+{{payer}} buys approximately {{bytes}} bytes of MEM on behalf of {{receiver}} by paying market rates for MEM. This transaction will incur a 0.5% fee and the cost will depend on market rates.
+
+
+<h1 class="contract">delegatebw</h1>
+
+---
+spec_version: "0.2.0"
+title: Stake Tokens for NET and/or CPU
+summary: 'Stake tokens for NET and/or CPU and optionally transfer ownership'
+icon: @ICON_BASE_URL@/@RESOURCE_ICON_URI@
+---
+
+{{#if transfer}} {{from}} stakes on behalf of {{receiver}} {{stake_net_quantity}} for NET bandwidth and {{stake_cpu_quantity}} for CPU bandwidth.
+
+Staked tokens will also be transferred to {{receiver}}. The sum of these two quantities will be deducted from {{from}}’s liquid balance and add to the vote weight of {{receiver}}.
+{{else}}
+{{from}} stakes to self and delegates to {{receiver}} {{stake_net_quantity}} for NET bandwidth and {{stake_cpu_quantity}} for CPU bandwidth.
+
+The sum of these two quantities add to the vote weight of {{from}}.
+{{/if}}
+
+<h1 class="contract">deleteauth</h1>
+
+---
+spec_version: "0.2.0"
+title: Delete Account Permission
+summary: 'Delete the {{nowrap permission}} permission of {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+Delete the {{permission}} permission of {{account}}.
+
+
+
+<h1 class="contract">init</h1>
+
+---
+spec_version: "0.2.0"
+title: Initialize System Contract
+summary: 'Initialize system contract'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+Initialize system contract. The core token symbol will be set to {{core}}.
+
+<h1 class="contract">linkauth</h1>
+
+---
+spec_version: "0.2.0"
+title: Link Action to Permission
+summary: '{{nowrap account}} sets the minimum required permission for the {{#if type}}{{nowrap type}} action of the{{/if}} {{nowrap code}} contract to {{nowrap requirement}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+{{account}} sets the minimum required permission for the {{#if type}}{{type}} action of the{{/if}} {{code}} contract to {{requirement}}.
+
+{{#if type}}{{else}}Any links explicitly associated to specific actions of {{code}} will take precedence.{{/if}}
+
+<h1 class="contract">newaccount</h1>
+
+---
+spec_version: "0.2.0"
+title: Create New Account
+summary: '{{nowrap creator}} creates a new account with the name {{nowrap name}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+{{creator}} creates a new account with the name {{name}} and the following permissions:
+
+owner permission with authority:
+{{to_json owner}}
+
+active permission with authority:
+{{to_json active}}
+
+
+<h1 class="contract">refund</h1>
+
+---
+spec_version: "0.2.0"
+title: Claim Unstaked Tokens
+summary: 'Return previously unstaked tokens to {{nowrap owner}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+Return previously unstaked tokens to {{owner}} after the unstaking period has elapsed.
+
+<h1 class="contract">regproducer</h1>
+
+---
+spec_version: "0.2.0"
+title: Register as a Block Producer Candidate
+summary: 'Register {{nowrap producer}} account as a block producer candidate'
+icon: @ICON_BASE_URL@/@VOTING_ICON_URI@
+---
+
+Register {{producer}} account as a block producer candidate.
+
+URL: {{url}}
+Location code: {{location}}
+Block signing key: {{producer_key}}
+
+## Block Producer Agreement
+{{$clauses.BlockProducerAgreement}}
+
+<h1 class="contract">regproducer2</h1>
+
+---
+spec_version: "0.2.0"
+title: Register as a Block Producer Candidate
+summary: 'Register {{nowrap producer}} account as a block producer candidate'
+icon: @ICON_BASE_URL@/@VOTING_ICON_URI@
+---
+
+Register {{producer}} account as a block producer candidate.
+
+URL: {{url}}
+Location code: {{location}}
+Block signing authority:
+{{to_json producer_authority}}
+
+## Block Producer Agreement
+{{$clauses.BlockProducerAgreement}}
+
+<h1 class="contract">regproxy</h1>
+
+---
+spec_version: "0.2.0"
+title: Register/unregister as a Proxy
+summary: 'Register/unregister {{nowrap proxy}} as a proxy account'
+icon: @ICON_BASE_URL@/@VOTING_ICON_URI@
+---
+
+{{#if isproxy}}
+{{proxy}} registers as a proxy that can vote on behalf of accounts that appoint it as their proxy.
+{{else}}
+{{proxy}} unregisters as a proxy that can vote on behalf of accounts that appoint it as their proxy.
+{{/if}}
+
+
+
+<h1 class="contract">rmvproducer</h1>
+
+---
+spec_version: "0.2.0"
+title: Forcibly Unregister a Block Producer Candidate
+summary: '{{nowrap producer}} is unregistered as a block producer candidate'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} unregisters {{producer}} as a block producer candidate. {{producer}} account will retain its votes and those votes can change based on voter stake changes or votes removed from {{producer}}. However new voters will not be able to vote for {{producer}} while it remains unregistered.
+
+<h1 class="contract">sellres</h1>
+
+---
+spec_version: "0.2.0"
+title: Sell MEM From Account
+summary: 'Sell unused MEM from {{nowrap account}}'
+icon: @ICON_BASE_URL@/@RESOURCE_ICON_URI@
+---
+
+Sell {{bytes}} bytes of unused MEM from account {{account}} at market price. This transaction will incur a 0.5% fee on the proceeds which depend on market rates.
+
+
+
+<h1 class="contract">setabi</h1>
+
+---
+spec_version: "0.2.0"
+title: Deploy Contract ABI
+summary: 'Deploy contract ABI on account {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+Deploy the ABI file associated with the contract on account {{account}}.
+
+<h1 class="contract">setacctcpu</h1>
+
+---
+spec_version: "0.2.0"
+title: Explicitly Manage the CPU Quota of Account
+summary: 'Explicitly manage the CPU bandwidth quota of account {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{#if_has_value cpu_weight}}
+Explicitly manage the CPU bandwidth quota of account {{account}} by pinning it to a weight of {{cpu_weight}}.
+
+{{account}} can stake and unstake, however, it will not change their CPU bandwidth quota as long as it remains pinned.
+{{else}}
+Unpin the CPU bandwidth quota of account {{account}}. The CPU bandwidth quota of {{account}} will be driven by the current tokens staked for CPU bandwidth by {{account}}.
+{{/if_has_value}}
+
+<h1 class="contract">setacctnet</h1>
+
+---
+spec_version: "0.2.0"
+title: Explicitly Manage the NET Quota of Account
+summary: 'Explicitly manage the NET bandwidth quota of account {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{#if_has_value net_weight}}
+Explicitly manage the network bandwidth quota of account {{account}} by pinning it to a weight of {{net_weight}}.
+
+{{account}} can stake and unstake, however, it will not change their NET bandwidth quota as long as it remains pinned.
+{{else}}
+Unpin the NET bandwidth quota of account {{account}}. The NET bandwidth quota of {{account}} will be driven by the current tokens staked for NET bandwidth by {{account}}.
+{{/if_has_value}}
+
+<h1 class="contract">setacctmem</h1>
+
+---
+spec_version: "0.2.0"
+title: Explicitly Manage the MEM Quota of Account
+summary: 'Explicitly manage the MEM quota of account {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{#if_has_value mem_bytes}}
+Explicitly manage the MEM quota of account {{account}} by pinning it to {{mem_bytes}} bytes.
+
+{{account}} can buy and sell MEM, however, it will not change their MEM quota as long as it remains pinned.
+{{else}}
+Unpin the MEM quota of account {{account}}. The MEM quota of {{account}} will be driven by the current MEM holdings of {{account}}.
+{{/if_has_value}}
+
+<h1 class="contract">setalimits</h1>
+
+---
+spec_version: "0.2.0"
+title: Adjust Resource Limits of Account
+summary: 'Adjust resource limits of account {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} updates {{account}}’s resource limits to have a MEM quota of {{mem_bytes}} bytes, a NET bandwidth quota of {{net_weight}} and a CPU bandwidth quota of {{cpu_weight}}.
+
+<h1 class="contract">setcode</h1>
+
+---
+spec_version: "0.2.0"
+title: Deploy Contract Code
+summary: 'Deploy contract code on account {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+Deploy compiled contract code to the account {{account}}.
+
+<h1 class="contract">setparams</h1>
+
+---
+spec_version: "0.2.0"
+title: Set System Parameters
+summary: 'Set System Parameters'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} sets system parameters to:
+{{to_json params}}
+
+<h1 class="contract">setpriv</h1>
+
+---
+spec_version: "0.2.0"
+title: Make an Account Privileged or Unprivileged
+summary: '{{#if is_priv}}Make {{nowrap account}} privileged{{else}}Remove privileged status of {{nowrap account}}{{/if}}'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{#if is_priv}}
+{{$action.account}} makes {{account}} privileged.
+{{else}}
+{{$action.account}} removes privileged status of {{account}}.
+{{/if}}
+
+<h1 class="contract">setmem</h1>
+
+---
+spec_version: "0.2.0"
+title: Configure the Available MEM
+summary: 'Configure the available MEM'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} configures the available MEM to {{max_mem_size}} bytes.
+
+<h1 class="contract">setmemrate</h1>
+
+---
+spec_version: "0.2.0"
+title: Set the Rate of Increase of MEM
+summary: 'Set the rate of increase of MEM per block'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} sets the rate of increase of MEM to {{bytes_per_block}} bytes/block.
+
+
+
+<h1 class="contract">setinflation</h1>
+
+---
+spec_version: "0.2.0"
+title: Set Inflation Parameters
+summary: 'Set inflation parameters'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} sets the inflation parameters as follows:
+
+* Annual inflation rate (in units of a hundredth of a percent): {{annual_rate}}
+* Fraction of inflation used to reward block producers: 10000/{{inflation_pay_factor}}
+* Fraction of block producer rewards to be distributed proportional to blocks produced: 10000/{{votepay_factor}}
+
+<h1 class="contract">undelegatebw</h1>
+
+---
+spec_version: "0.2.0"
+title: Unstake Tokens for NET and/or CPU
+summary: 'Unstake tokens for NET and/or CPU from {{nowrap receiver}}'
+icon: @ICON_BASE_URL@/@RESOURCE_ICON_URI@
+---
+
+{{from}} unstakes from {{receiver}} {{unstake_net_quantity}} for NET bandwidth and {{unstake_cpu_quantity}} for CPU bandwidth.
+
+The sum of these two quantities will be removed from the vote weight of {{receiver}} and will be made available to {{from}} after an uninterrupted 3 day period without further unstaking by {{from}}. After the uninterrupted 3 day period passes, the system will attempt to automatically return the funds to {{from}}’s regular token balance. However, this automatic refund may occasionally fail which will then require {{from}} to manually claim the funds with the refund action.
+
+<h1 class="contract">unlinkauth</h1>
+
+---
+spec_version: "0.2.0"
+title: Unlink Action from Permission
+summary: '{{nowrap account}} unsets the minimum required permission for the {{#if type}}{{nowrap type}} action of the{{/if}} {{nowrap code}} contract'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+{{account}} removes the association between the {{#if type}}{{type}} action of the{{/if}} {{code}} contract and its minimum required permission.
+
+{{#if type}}{{else}}This will not remove any links explicitly associated to specific actions of {{code}}.{{/if}}
+
+<h1 class="contract">unregprod</h1>
+
+---
+spec_version: "0.2.0"
+title: Unregister as a Block Producer Candidate
+summary: '{{nowrap producer}} unregisters as a block producer candidate'
+icon: @ICON_BASE_URL@/@VOTING_ICON_URI@
+---
+
+{{producer}} unregisters as a block producer candidate. {{producer}} account will retain its votes and those votes can change based on voter stake changes or votes removed from {{producer}}. However new voters will not be able to vote for {{producer}} while it remains unregistered.
+
+
+<h1 class="contract">updateauth</h1>
+
+---
+spec_version: "0.2.0"
+title: Modify Account Permission
+summary: 'Add or update the {{nowrap permission}} permission of {{nowrap account}}'
+icon: @ICON_BASE_URL@/@ACCOUNT_ICON_URI@
+---
+
+Modify, and create if necessary, the {{permission}} permission of {{account}} to have a parent permission of {{parent}} and the following authority:
+{{to_json auth}}
+
+
+<h1 class="contract">updtrevision</h1>
+
+---
+spec_version: "0.2.0"
+title: Update System Contract Revision Number
+summary: 'Update system contract revision number'
+icon: @ICON_BASE_URL@/@ADMIN_ICON_URI@
+---
+
+{{$action.account}} advances the system contract revision number to {{revision}}.
+
+<h1 class="contract">makeprod</h1>
+
+---
+spec_version: "0.2.0"
+title: Vote for Block Producers
+summary: '{{nowrap voter}} votes for {{#if proxy}}the proxy {{nowrap proxy}}{{else}}up to 30 block producer candidates{{/if}}'
+icon: @ICON_BASE_URL@/@VOTING_ICON_URI@
+---
+
+{{#if proxy}}
+{{voter}} votes for the proxy {{proxy}}.
+At the time of voting the full weight of voter’s staked (CPU + NET) tokens will be cast towards each of the producers voted by {{proxy}}.
+{{else}}
+{{voter}} votes for the following block producer candidates:
+
+{{#each producers}}
+  + {{this}}
+{{/each}}
+
+At the time of voting the full weight of voter’s staked (CPU + NET) tokens will be cast towards each of the above producers.
+{{/if}}
+
+

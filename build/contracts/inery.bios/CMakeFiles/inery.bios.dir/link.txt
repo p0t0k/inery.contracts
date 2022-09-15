@@ -1,0 +1,1 @@
+/usr/local/inery.cdt/bin/inery-ld  CMakeFiles/inery.bios.dir/src/inery.bios.cpp.obj -o inery.bios.wasm 

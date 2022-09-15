@@ -1,0 +1,1 @@
+/usr/local/inery.cdt/bin/inery-ld  CMakeFiles/inery.msig.dir/src/inery.msig.cpp.obj -o inery.msig.wasm 

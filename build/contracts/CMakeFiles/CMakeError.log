@@ -1,0 +1,90 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/local/inery.cdt/bin/inery-cc 
+Build flags: ;-O3;
+Id flags:  
+
+The output was:
+255
+/usr/local/inery.cdt/bin/wasm-ld: error: fatal failure: contract with no actions and trying to create dispatcher
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/local/inery.cdt/bin/inery-cpp 
+Build flags: ;-O3;
+Id flags:  
+
+The output was:
+255
+/usr/local/inery.cdt/bin/wasm-ld: error: fatal failure: contract with no actions and trying to create dispatcher
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_56868/fast && make[3]: Entering directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_56868.dir/build.make CMakeFiles/cmTC_56868.dir/build
+make[4]: Entering directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_56868.dir/CMakeCCompilerABI.c.obj
+/usr/local/inery.cdt/bin/inery-cc   -O3     -v -o CMakeFiles/cmTC_56868.dir/CMakeCCompilerABI.c.obj   -c /root/inery/2.0/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+clang version 7.0.0 
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/local/inery.cdt/bin
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/10
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Linking C executable cmTC_56868.wasm
+/root/inery/2.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_56868.dir/link.txt --verbose=1
+/usr/local/inery.cdt/bin/inery-ld  -v CMakeFiles/cmTC_56868.dir/CMakeCCompilerABI.c.obj -o cmTC_56868.wasm 
+inery-ld: Unknown command line argument '-v'.  Try: '/usr/local/inery.cdt/bin/inery-ld -help'
+inery-ld: Did you mean '-L'?
+CMakeFiles/cmTC_56868.dir/build.make:86: recipe for target 'cmTC_56868.wasm' failed
+make[4]: *** [cmTC_56868.wasm] Error 1
+make[4]: Leaving directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_56868/fast' failed
+make[3]: *** [cmTC_56868/fast] Error 2
+make[3]: Leaving directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_39089/fast && make[3]: Entering directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_39089.dir/build.make CMakeFiles/cmTC_39089.dir/build
+make[4]: Entering directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_39089.dir/CMakeCXXCompilerABI.cpp.obj
+/usr/local/inery.cdt/bin/inery-cpp    -O3     -v -o CMakeFiles/cmTC_39089.dir/CMakeCXXCompilerABI.cpp.obj -c /root/inery/2.0/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+clang version 7.0.0 
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/local/inery.cdt/bin
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/10
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Linking CXX executable cmTC_39089.wasm
+/root/inery/2.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_39089.dir/link.txt --verbose=1
+/usr/local/inery.cdt/bin/inery-ld  -v CMakeFiles/cmTC_39089.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_39089.wasm 
+inery-ld: Unknown command line argument '-v'.  Try: '/usr/local/inery.cdt/bin/inery-ld -help'
+inery-ld: Did you mean '-L'?
+CMakeFiles/cmTC_39089.dir/build.make:86: recipe for target 'cmTC_39089.wasm' failed
+make[4]: *** [cmTC_39089.wasm] Error 1
+make[4]: Leaving directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_39089/fast' failed
+make[3]: *** [cmTC_39089/fast] Error 2
+make[3]: Leaving directory '/home/inery-contracts/inery.contracts/build/contracts/CMakeFiles/CMakeTmp'
+
+
+
+

@@ -1,0 +1,1 @@
+cmd='/root/inery/2.0/bin/cmake;-DCMAKE_TOOLCHAIN_FILE=/usr/local/inery.cdt//lib/cmake/inery.cdt/IneryWasmToolchain.cmake;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

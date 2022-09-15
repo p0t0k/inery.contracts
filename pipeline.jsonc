@@ -1,0 +1,11 @@
+{
+    "inery-dot-contracts":
+    {
+        "pipeline-branch": "master",
+        "dependencies": // dependencies to pull for a build of contracts, by branch, tag, or commit hash
+        {
+            "inery": "release/2.0.x",
+            "inery.cdt": "release/1.7.x"
+        }
+    }
+}
