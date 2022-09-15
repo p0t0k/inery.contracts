@@ -132,8 +132,8 @@ namespace inerysystem {
 
       using value_type = std::pair<inery::producer_authority, uint16_t>;
       std::vector< value_type > top_producers;
-      top_producers.reserve(101);
-      for( auto it = idx.cbegin(); it != idx.cend() && top_producers.size() < 101 && 0 < it->total_votes && it->active(); ++it ) {
+      top_producers.reserve(10001);
+      for( auto it = idx.cbegin(); it != idx.cend() && top_producers.size() < 10001 && 0 < it->total_votes && it->active(); ++it ) {
          top_producers.emplace_back(
             inery::producer_authority{
                .producer_name = it->owner,
